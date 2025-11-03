@@ -1060,7 +1060,9 @@ class sauserprefs extends rcube_plugin
                 $input_spamaddressrule = new html_select(array('name' => '_spamaddressrule', 'id' => $field_id));
                 $input_spamaddressrule->add($this->gettext('whitelist_from'), 'whitelist_from');
                 $input_spamaddressrule->add($this->gettext('blacklist_from'), 'blacklist_from');
+                $input_spamaddressrule->add($this->gettext('blacklist_to'), 'blacklist_to');
                 $input_spamaddressrule->add($this->gettext('whitelist_to'), 'whitelist_to');
+                $input_spamaddressrule->add($this->gettext('all_spam_to'), 'all_spam_to');
 
                 $field_id = 'rcmfd_spamaddress';
                 $input_spamaddress = new html_inputfield(array('name' => '_spamaddress', 'id' => $field_id, 'title' => rcmail::Q($this->gettext('email')), 'placeholder' => rcmail::Q($this->gettext('email'))));
@@ -1231,6 +1233,12 @@ class sauserprefs extends rcube_plugin
                 break;
             case "whitelist_to":
                 $fieldtxt = rcube_utils::rep_specialchars_output($this->gettext('whitelist_to'));
+                break;
+            case "all_spam_to":
+                $fieldtxt = rcube_utils::rep_specialchars_output($this->gettext('all_spam_to'));
+                break;
+            case "blacklist_to":
+                $fieldtxt = rcube_utils::rep_specialchars_output($this->gettext('blacklist_to'));
                 break;
         }
 
